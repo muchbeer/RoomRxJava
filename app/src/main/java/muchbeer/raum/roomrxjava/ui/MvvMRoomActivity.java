@@ -59,8 +59,9 @@ public class MvvMRoomActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view_users);
         userAdapter = new UserAdapter(this, userList, MvvMRoomActivity.this);
-        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
 
+
+    userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
     @Override
     public void onChanged(List<User> users) {
         userList.clear();
