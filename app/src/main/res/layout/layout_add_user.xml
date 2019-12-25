@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView android:id="@+id/new_user_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:lineSpacingExtra="10sp"
+        android:text="New Contact"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edt_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:hint=" User Name "
+        android:inputType="textCapSentences|textMultiLine"
+
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edt_userSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:hint=" User School "
+        android:inputType="textCapSentences|textMultiLine"
+
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edt_userPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:hint=" User Place "
+        android:inputType="textCapSentences|textMultiLine"
+
+        android:textSize="16dp" />
+</LinearLayout>

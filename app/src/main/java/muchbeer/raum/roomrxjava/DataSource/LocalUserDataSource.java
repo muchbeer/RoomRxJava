@@ -1,5 +1,9 @@
 package muchbeer.raum.roomrxjava.DataSource;
 
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.List;
+
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import muchbeer.raum.roomrxjava.DB.UserDao;
@@ -14,8 +18,13 @@ public class LocalUserDataSource implements UserDataSouce {
     }
 
     @Override
-    public Flowable<User> getUser() {
+    public Flowable<List<User>> getUser() {
         return mUserDao.getUser();
+    }
+
+    @Override
+    public MutableLiveData<List<User>> getUserLiveData() {
+        return null;
     }
 
     @Override

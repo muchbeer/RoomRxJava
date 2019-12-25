@@ -19,17 +19,11 @@ import muchbeer.raum.roomrxjava.R;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
     private TextView mUserName;
-
     private EditText mUserNameInput;
-
     private Button mUpdateButton;
-
     private ViewModelFactory mViewModelFactory;
-
     private UserViewModel mViewModel;
-
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
 
@@ -55,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         // Subscribe to the emissions of the user name from the view model.
         // Update the user name text view, at every onNext emission.
         // In case of error, log the exception.
-        mDisposable.add(mViewModel.getUserName()
+      /*  mDisposable.add(mViewModel.getUserName()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(userName -> mUserName.setText(userName),
-                        throwable -> Log.e(TAG, "Unable to update username", throwable)));
+                        throwable -> Log.e(TAG, "Unable to update username", throwable)));*/
         Toast.makeText(getApplicationContext(), "Unable to update username", Toast.LENGTH_LONG).show();
     }
 
@@ -76,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
         mUpdateButton.setEnabled(false);
         // Subscribe to updating the user name.
         // Re-enable the button once the user name has been updated
-        mDisposable.add(mViewModel.updateUserName(userName)
+/*        mDisposable.add(mViewModel.updateUserName(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(() -> mUpdateButton.setEnabled(true),
                         throwable -> Log.e(TAG, "Unable to update username", throwable)));
+                        */
+
     }
 }

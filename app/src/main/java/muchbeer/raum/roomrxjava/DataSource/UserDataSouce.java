@@ -1,27 +1,22 @@
 package muchbeer.raum.roomrxjava.DataSource;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.List;
+
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import muchbeer.raum.roomrxjava.model.User;
 
 public interface UserDataSouce {
 
-    /**
-     * Gets the user from the data source.
-     *
-     * @return the user from the data source.
-     */
-    Flowable<User> getUser();
 
-    /**
-     * Inserts the user into the data source, or, if this is an existing user, updates it.
-     *
-     * @param user the user to be inserted or updated.
-     */
+    Flowable<List<User>> getUser();
+
+    MutableLiveData<List<User>> getUserLiveData();
+
     Completable insertOrUpdateUser(User user);
 
-    /**
-     * Deletes all users from the data source.
-     */
     void deleteAllUsers();
 }
