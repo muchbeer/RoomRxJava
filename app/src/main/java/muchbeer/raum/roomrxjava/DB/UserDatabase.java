@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import muchbeer.raum.roomrxjava.model.User;
 
-@Database(entities = {User.class}, version = 2, exportSchema = false)
+@Database(entities = {User.class}, version = 3, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
 
     private static volatile UserDatabase INSTANCE;
@@ -20,7 +20,7 @@ public abstract class UserDatabase extends RoomDatabase {
             synchronized (UserDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            UserDatabase.class, "Sample.db")
+                            UserDatabase.class, "USer.db")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

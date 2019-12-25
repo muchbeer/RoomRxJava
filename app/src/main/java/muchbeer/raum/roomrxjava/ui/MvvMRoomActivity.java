@@ -51,11 +51,9 @@ public class MvvMRoomActivity extends AppCompatActivity {
 userViewModel = ViewModelProviders.of(this).get(AltUserViewModel.class);
 
         recyclerView = findViewById(R.id.recycler_view_users);
-
         userAdapter = new UserAdapter(this, userList, MvvMRoomActivity.this);
-
-
         userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+
     @Override
     public void onChanged(List<User> users) {
         userList.clear();
@@ -77,13 +75,10 @@ userViewModel = ViewModelProviders.of(this).get(AltUserViewModel.class);
     }
 
     private void init() {
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(userAdapter);
-
-        }
+        recyclerView.setAdapter(userAdapter);   }
 
     public void addAndEditContacts(final boolean isUpdate, final User user, final int position) {
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getApplicationContext());

@@ -16,8 +16,7 @@ import muchbeer.raum.roomrxjava.model.User;
 @Dao
 public interface UserDao {
 
-
-    @Query("SELECT * FROM users LIMIT 1")
+    @Query("SELECT * FROM users")
     Flowable<List<User>> getUser();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
