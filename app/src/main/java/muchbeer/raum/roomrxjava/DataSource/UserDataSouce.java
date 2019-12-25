@@ -12,11 +12,13 @@ import muchbeer.raum.roomrxjava.model.User;
 public interface UserDataSouce {
 
 
-    Flowable<List<User>> getUser();
-
     MutableLiveData<List<User>> getUserLiveData();
 
-    Completable insertOrUpdateUser(User user);
+   void newUser(String userName, String userSchool, String userPlace);
 
-    void deleteAllUsers();
+       void deleteUser(User user);
+
+    void updateUser(User user);
+
+    void clear();
 }

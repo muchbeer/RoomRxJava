@@ -20,7 +20,7 @@ import muchbeer.raum.roomrxjava.DB.UserDatabase;
 import muchbeer.raum.roomrxjava.DataSource.UserDataSouce;
 import muchbeer.raum.roomrxjava.model.User;
 
-public class UserRepository implements UserDataSouce {
+public class UserRepository {
 
 
     private static final String LOG_TAG = UserRepository.class.getSimpleName();
@@ -141,29 +141,10 @@ public class UserRepository implements UserDataSouce {
             }));
     }
 
-    @Override
-    public MutableLiveData<List<User>> getUserLiveData() {
-        return userLiveData;
-    }
-
-    public void clear() {
+     public void clear() {
         disposable.clear();
     }
 
-    @Override
-    public Flowable<List<User>> getUser() {
-        return null;
-    }
+    public MutableLiveData<List<User>> getUserLiveData() { return userLiveData; }
 
-
-
-    @Override
-    public Completable insertOrUpdateUser(User user) {
-        return null;
-    }
-
-    @Override
-    public void deleteAllUsers() {
-
-    }
 }

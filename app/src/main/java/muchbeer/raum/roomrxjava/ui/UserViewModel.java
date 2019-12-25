@@ -1,6 +1,9 @@
 package muchbeer.raum.roomrxjava.ui;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
+
+import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
@@ -16,6 +19,19 @@ public class UserViewModel extends ViewModel {
     public UserViewModel(UserDataSouce mDataSource) {
         this.mDataSource = mDataSource;
     }
+    public LiveData<List<User>> getAllUsers(){
+        return  mDataSource.getUserLiveData();
+    }
+    public void newUser(String userName, String userSchool, String userPlace){ mDataSource.newUser(userName,userSchool,userPlace); }
+    public void updateUser(User user){
+        mDataSource.updateUser(user);
+    }
+    public void deleteUser(User user){  mDataSource.deleteUser(user); }
+    public void clear(){
+        mDataSource.clear();
+    }
+
+
 
   /*  public Flowable<String> getUserName() {
         return mDataSource.getUser()

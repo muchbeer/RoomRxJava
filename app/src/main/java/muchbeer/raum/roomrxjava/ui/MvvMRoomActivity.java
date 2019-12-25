@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import muchbeer.raum.roomrxjava.DB.UserDatabase;
+import muchbeer.raum.roomrxjava.DataSource.Injection;
 import muchbeer.raum.roomrxjava.R;
 import muchbeer.raum.roomrxjava.adapter.UserAdapter;
 import muchbeer.raum.roomrxjava.model.User;
@@ -33,11 +34,14 @@ import muchbeer.raum.roomrxjava.model.User;
 public class MvvMRoomActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MvvMRoomActivity.class.getSimpleName();
-    private AltUserViewModel userViewModel;
+    //private AltUserViewModel userViewModel;
+    private UserViewModel userViewModel;
     private RecyclerView recyclerView;
     private UserDatabase userAppDatabase;
     private UserAdapter userAdapter;
     private ArrayList<User> userList =  new ArrayList<>();
+    private ViewModelFactory mViewModelFactory;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,10 @@ public class MvvMRoomActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(" School Logs ");
 
-userViewModel = ViewModelProviders.of(this).get(AltUserViewModel.class);
+        mViewModelFactory = Injection.provideViewModelFactory(this);
+
+        userViewModel = new ViewModelProvider(this, mViewModelFactory).get(UserViewModel.class);
+//userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
         recyclerView = findViewById(R.id.recycler_view_users);
         userAdapter = new UserAdapter(this, userList, MvvMRoomActivity.this);

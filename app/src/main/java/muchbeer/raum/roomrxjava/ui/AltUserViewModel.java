@@ -24,8 +24,7 @@ public class AltUserViewModel extends AndroidViewModel {
         return  userRepository.getUserLiveData();
     }
 
-    public void newUser(String userName, String userSchool, String userPlace){
-      userRepository.newUser(userName,userSchool,userPlace); }
+    public void newUser(String userName, String userSchool, String userPlace){ userRepository.newUser(userName,userSchool,userPlace); }
     public void updateUser(User user){
         userRepository.updateUser(user);
     }
