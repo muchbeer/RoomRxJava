@@ -60,8 +60,14 @@ public class MvvMRoomActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view_users);
         userAdapter = new UserAdapter(this, userList, MvvMRoomActivity.this);
 
-
-    userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+    userViewModel.getAllUsers().observe(this, users ->{
+    userList.clear();
+    userList.addAll(users);
+    Log.d(LOG_TAG, "The vaLLUE is: "+ users);
+    init();
+    userAdapter.notifyDataSetChanged();
+    });
+ /*   userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
     @Override
     public void onChanged(List<User> users) {
         userList.clear();
@@ -70,7 +76,7 @@ public class MvvMRoomActivity extends AppCompatActivity {
         init();
         userAdapter.notifyDataSetChanged();
         }
-});
+});*/
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

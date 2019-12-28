@@ -130,21 +130,16 @@ public class UserRepository {
                 @Override
                 public void onComplete() {
                     Toast.makeText(application.getApplicationContext()," user deleted successfully ", Toast.LENGTH_LONG).show();
-
                 }
 
                 @Override
                 public void onError(Throwable e) {
                     Toast.makeText(application.getApplicationContext()," user error ", Toast.LENGTH_LONG).show();
-                     Log.d(LOG_TAG, "The error obtain is: " +e.getMessage());
-                }
+                     Log.d(LOG_TAG, "The error obtain is: " +e.getMessage()); }
             }));
     }
 
-     public void clear() {
-        disposable.clear();
-    }
+     public void clear() { disposable.clear(); }
 
     public MutableLiveData<List<User>> getUserLiveData() { return userLiveData; }
-
 }

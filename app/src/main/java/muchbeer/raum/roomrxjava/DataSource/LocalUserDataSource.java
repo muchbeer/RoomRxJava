@@ -57,25 +57,18 @@ public class LocalUserDataSource implements UserDataSouce {
             @Override
             public void run() throws Exception {
                 //  rowIdOfTheItemInserted = contactsAppDatabase.getContactDAO().addContact(new Contact(0,name, email));
-                rowIdOfTheItemInserted = userAppDatabase.userDao().insertUserMvvm(new User(userName, userSchool, userPlace));
-
-            }
-        })
-                .subscribeOn(Schedulers.io())
+                rowIdOfTheItemInserted = userAppDatabase.userDao().insertUserMvvm(new User(userName, userSchool, userPlace));  }
+        })      .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
                         //Toast.makeText(Context.getApplicationContext()," user added successfully "+rowIdOfTheItemInserted, Toast.LENGTH_LONG).show();
-                        Log.d(LOG_TAG, "The user is added successful");
-
-                    }
+                        Log.d(LOG_TAG, "The user is added successful"); }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(LOG_TAG, "tHE new error on create the new user is: " + e.getMessage());
-
-                    }
+                        Log.d(LOG_TAG, "tHE new error on create the new user is: " + e.getMessage()); }
                 }));
     }
 
@@ -84,8 +77,7 @@ public class LocalUserDataSource implements UserDataSouce {
         disposable.add(Completable.fromAction(new Action() {
             @Override
             public void run() throws Exception {
-                mUserDao.updateUser(user);
-            }
+                mUserDao.updateUser(user);  }
         })
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
@@ -97,8 +89,7 @@ public class LocalUserDataSource implements UserDataSouce {
 
             @Override
             public void onError(Throwable e) {
-                Log.d(LOG_TAG, "tHE new error on create the new user is: " + e.getMessage());
-            }
+                Log.d(LOG_TAG, "tHE new error on create the new user is: " + e.getMessage()); }
         }));
     }
 
@@ -112,8 +103,7 @@ public class LocalUserDataSource implements UserDataSouce {
         disposable.add(Completable.fromAction(new Action() {
             @Override
             public void run() throws Exception {
-                mUserDao.deleteUserMvvm(user);
-            }
+                mUserDao.deleteUserMvvm(user);  }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -125,8 +115,7 @@ public class LocalUserDataSource implements UserDataSouce {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(LOG_TAG, "tHE new error on the delete: " + e.getMessage());
-                    }
+                        Log.d(LOG_TAG, "tHE new error on the delete: " + e.getMessage()); }
                 }));
     }
 }
